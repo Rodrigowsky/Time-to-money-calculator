@@ -40,7 +40,7 @@ const tableCreation = function (value1, value2, value3, value4, value5, value6, 
 
   thead.appendChild(row_1);
 
-  //Second Row Data (loop)
+  //Data Rows(loop)
     //5 10 20 30 50 75 100
   for (let i = 0; i < arguments.length; i++) {
     let row_2 = document.createElement("tr");
