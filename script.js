@@ -13,8 +13,8 @@ const hleExhangeRate = (hoursWorked, SalaryIn) => {
 
 //Element Creation
 
-const tableCreation = () => {
-  const hleRate = hleExhangeRate(salaryInput.value, hoursInput.value);
+const tableCreation = function (value1, value2, value3, value4, value5, value6, value7) {
+  const hleRate = hleExhangeRate(hoursInput.value,salaryInput.value);
 
   //Table Barebones
 
@@ -41,17 +41,16 @@ const tableCreation = () => {
   thead.appendChild(row_1);
 
   //Second Row Data (loop)
-
-  for (let i = 0; i <= 100; i+10) {
     //5 10 20 30 50 75 100
-    if (i === 0) {
-      continue;
-    }
+  for (let i = 0; i < arguments.length; i++) {
     let row_2 = document.createElement("tr");
     let row_2_data_1 = document.createElement("td");
-    row_2_data_1.innerHTML = i;
+    console.log("hello", arguments);
+    const data = arguments[i];
+    row_2_data_1.innerHTML = data;
+
     let row_2_data_2 = document.createElement("td");
-    row_2_data_2.innerHTML = i * hleRate;
+    row_2_data_2.innerHTML = data * hleRate;
 
     row_2.appendChild(row_2_data_1);
     row_2.appendChild(row_2_data_2);
@@ -67,11 +66,8 @@ mainForm.addEventListener("submit", (e) => {
 
   console.log("lá vai ele");
   
-  tableCreation();
+  tableCreation(5,10,20,30,50,75,100);
 });
 
-console.log("aloha");
 
 
-//5 10 20 30 50 75 100
-//HLE Hours of Life Energy
