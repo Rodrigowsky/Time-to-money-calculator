@@ -7,14 +7,22 @@ const hoursInput = document.querySelector("#hours");
 //Calculate
 
 const hleExhangeRate = (hoursWorked, SalaryIn) => {
-  let resultRate = (hoursWorked * 4) / SalaryIn
-  return resultRate
+  let resultRate = (hoursWorked * 4) / SalaryIn;
+  return resultRate;
 };
 
 //Element Creation
 
-const tableCreation = function (value1, value2, value3, value4, value5, value6, value7) {
-  const hleRate = hleExhangeRate(hoursInput.value,salaryInput.value);
+const tableCreation = function (
+  value1,
+  value2,
+  value3,
+  value4,
+  value5,
+  value6,
+  value7
+) {
+  const hleRate = hleExhangeRate(hoursInput.value, salaryInput.value);
 
   //Table Barebones
 
@@ -41,7 +49,7 @@ const tableCreation = function (value1, value2, value3, value4, value5, value6, 
   thead.appendChild(row_1);
 
   //Data Rows(loop)
-    //5 10 20 30 50 75 100
+  //5 10 20 30 50 75 100
   for (let i = 0; i < arguments.length; i++) {
     let row_2 = document.createElement("tr");
     let row_2_data_1 = document.createElement("td");
@@ -50,12 +58,13 @@ const tableCreation = function (value1, value2, value3, value4, value5, value6, 
     row_2_data_1.innerHTML = data;
 
     let row_2_data_2 = document.createElement("td");
-    row_2_data_2.innerHTML = data * hleRate;
+    row_2_data_2.innerHTML = Number(data * hleRate).toFixed(1);
 
     row_2.appendChild(row_2_data_1);
     row_2.appendChild(row_2_data_2);
 
     tbody.appendChild(row_2);
+    
   }
 };
 
@@ -64,10 +73,7 @@ const tableCreation = function (value1, value2, value3, value4, value5, value6, 
 mainForm.addEventListener("submit", (e) => {
   e.preventDefault();
 
-  console.log("lá vai ele");
+  tableCreation(5, 10, 20, 30, 50, 75, 100);
   
-  tableCreation(5,10,20,30,50,75,100);
+
 });
-
-
-
