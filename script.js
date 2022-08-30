@@ -65,23 +65,32 @@ const tableCreation = function (
     row_2.appendChild(row_2_data_2);
 
     tbody.appendChild(row_2);
-
-    mainForm.style.display = "none";
-
-    const custom_style={
-      width: "400px",
-      height: "300px",
-      position: "absolute",
-      top: "0",
-      bottom: "0",
-      left: "0",
-      right: "0",
-      margin: "auto"
-    }
-    
-    Object.assign(table.style, custom_style);
-    
   }
+
+  mainForm.style.display = "none";
+
+  const custom_style = {
+    width: "400px",
+    height: "300px",
+    position: "absolute",
+    top: "0",
+    bottom: "0",
+    left: "0",
+    right: "0",
+    margin: "auto",
+  };
+
+  Object.assign(table.style, custom_style);
+
+  const backButton = document.createElement("button");
+
+  backButton.innerHTML = "Go Back";
+  table.appendChild(backButton);
+  backButton.addEventListener("click", () => {
+    table.remove();
+
+    mainForm.style.display = "flex";
+  });
 };
 
 //Event Listeners
@@ -90,6 +99,4 @@ mainForm.addEventListener("submit", (e) => {
   e.preventDefault();
 
   tableCreation(5, 10, 20, 30, 50, 75, 100);
-  
-
 });
