@@ -3,6 +3,7 @@
 const mainForm = document.querySelector(".form-main");
 const salaryInput = document.querySelector("#salary");
 const hoursInput = document.querySelector("#hours");
+const body = document.querySelector("body");
 
 //Calculate
 
@@ -33,7 +34,7 @@ const tableCreation = function (
   table.appendChild(thead);
   table.appendChild(tbody);
 
-  mainForm.appendChild(table);
+  body.appendChild(table);
 
   //First Row Heading
 
@@ -64,6 +65,21 @@ const tableCreation = function (
     row_2.appendChild(row_2_data_2);
 
     tbody.appendChild(row_2);
+
+    mainForm.style.display = "none";
+
+    const custom_style={
+      width: "400px",
+      height: "300px",
+      position: "absolute",
+      top: "0",
+      bottom: "0",
+      left: "0",
+      right: "0",
+      margin: "auto"
+    }
+    
+    Object.assign(table.style, custom_style);
     
   }
 };
