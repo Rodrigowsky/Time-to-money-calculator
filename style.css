@@ -172,6 +172,12 @@ body {
   width: 50%;
 }
 
-.exitBtn {
-  margin-top: 20px;
+.container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  
 }
+

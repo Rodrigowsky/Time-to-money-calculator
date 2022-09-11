@@ -3,7 +3,7 @@
 const mainForm = document.querySelector(".form-main");
 const salaryInput = document.querySelector("#salary");
 const hoursInput = document.querySelector("#hours");
-const body = document.querySelector("body");
+const body = document.querySelector(".container");
 
 //Calculate
 
@@ -75,36 +75,61 @@ const tableCreation = function (
 
   mainForm.style.display = "none";
 
+  //CSS inject style
+
   const custom_style = {
     width: "400px",
     height: "300px",
-    position: "absolute",
-    top: "0",
-    bottom: "0",
-    left: "0",
-    right: "0",
-    margin: "auto",
+    borderRadius:"6px"
   };
 
   Object.assign(table.style, custom_style);
 
+  btnCreation(body,table);
+};
+
+//Btns Elements Creation
+
+const btnCreation = (parentElement, tableElement) => {
   const btnContainer = document.createElement("div");
   const backButton = document.createElement("button");
   const printBtn = document.createElement("button");
-  table.appendChild(btnContainer);
+  parentElement.appendChild(btnContainer);
+  btnContainer.classList.add("btnContainer");
 
   backButton.innerHTML = "Go Back";
   printBtn.innerHTML = "Save To Print";
-  
+
   btnContainer.appendChild(backButton);
   btnContainer.appendChild(printBtn);
 
-  backButton.classList.add("exitBtn")
-  backButton.addEventListener("click", () => {
-    table.remove();
+  backButton.classList.add("btn");
+  printBtn.classList.add("btn");
 
+  //Event Listener For Buttons
+
+  backButton.addEventListener("click", () => {
+    tableElement.remove();
+    btnContainer.remove();
     mainForm.style.display = "flex";
   });
+
+  //CSS for Btns
+  const custom_style = {
+    width: "400px",
+    paddingTop:"25px",
+  };
+
+  const backBtnStyle = {
+    marginRight: "20px",
+  }
+  const printBtnStyle = {
+    marginLeft: "20px",
+  }
+
+  Object.assign(backButton.style, backBtnStyle);
+  Object.assign(printBtn.style, printBtnStyle);
+  Object.assign(btnContainer.style, custom_style);
 };
 
 //Event Listeners
