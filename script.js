@@ -80,12 +80,12 @@ const tableCreation = function (
   const custom_style = {
     width: "400px",
     height: "300px",
-    borderRadius:"6px"
+    borderRadius: "6px",
   };
 
   Object.assign(table.style, custom_style);
 
-  btnCreation(body,table);
+  btnCreation(body, table);
 };
 
 //Btns Elements Creation
@@ -114,18 +114,24 @@ const btnCreation = (parentElement, tableElement) => {
     mainForm.style.display = "flex";
   });
 
+  printBtn.addEventListener("click", () => {
+    console.log("printhello");
+  });
+
   //CSS for Btns
   const custom_style = {
     width: "400px",
-    paddingTop:"25px",
+    paddingTop: "25px",
   };
 
   const backBtnStyle = {
     marginRight: "20px",
-  }
+    padding: "5px",
+  };
   const printBtnStyle = {
     marginLeft: "20px",
-  }
+    padding: "5px",
+  };
 
   Object.assign(backButton.style, backBtnStyle);
   Object.assign(printBtn.style, printBtnStyle);
