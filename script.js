@@ -41,7 +41,7 @@ const tableCreation = function (
   let row_1 = document.createElement("tr");
 
   let heading_1 = document.createElement("th");
-  heading_1.innerHTML = "Amount";
+  heading_1.innerHTML = "Money Amount";
   heading_1.classList.add("cell_border");
   let heading_2 = document.createElement("th");
   heading_2.innerHTML = "Hours Needed";
@@ -59,12 +59,10 @@ const tableCreation = function (
 
     let row_2_data_1 = document.createElement("td");
     row_2_data_1.classList.add("cell_border");
-    console.log("hello", arguments);
     const data = arguments[i];
     row_2_data_1.innerHTML = data;
 
     let row_2_data_2 = document.createElement("td");
-    row_2_data_2.classList.add("cell_border");
     row_2_data_2.innerHTML = Number(data * hleRate).toFixed(1);
 
     row_2.appendChild(row_2_data_1);

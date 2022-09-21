@@ -166,12 +166,6 @@ body {
   padding: 20px 20px;
 }
 
-.cell_border {
-  border: 1px solid black;
-  border-radius: 5px;
-  width: 50%;
-}
-
 .container {
   height: 100vh;
   display: flex;
@@ -184,5 +178,33 @@ body {
   padding-right: 700px;
   padding-left: 700px;
   font-size: 22px;
-  padding-bottom:100px;
+  padding-bottom: 100px;
+}
+
+table {
+  border: 1px solid #aaa;
+  border-collapse: separate;
+  overflow: hidden;
+  border-spacing: 0;
+  border-radius: 10px;
+  text-align: center;
+  border: 1px solid #aaa;
+}
+table th, table td {
+  padding: 0.6em 3em;
+  vertical-align: middle;
+  border-right: 1px solid #aaa;
+  border-bottom: 1px solid #aaa;
+}
+table th:last-child, table td:last-child {
+  border-right: none;
+}
+table th {
+  background: #ddd;
+}
+table td {
+  background: #fff;
+}
+table tbody tr:last-child th, table tbody tr:last-child td {
+  border-bottom: none;
 }
