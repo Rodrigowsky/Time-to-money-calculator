@@ -112,9 +112,7 @@ const btnCreation = (parentElement, tableElement) => {
     mainForm.style.display = "flex";
   });
 
-  printBtn.addEventListener("click", () => {
-    console.log("printhello");
-  });
+  printBtn.addEventListener("click", downloadPDFWithjsPDF);
 
   //CSS for Btns
   const custom_style = {
