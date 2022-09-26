@@ -1,3 +1,6 @@
+//state
+let changedToMinutes = false;
+
 //Element Selector
 
 const mainForm = document.querySelector(".form-main");
@@ -10,6 +13,29 @@ const body = document.querySelector(".container");
 const hleExhangeRate = (hoursWorked, SalaryIn) => {
   let resultRate = (hoursWorked * 4) / SalaryIn;
   return resultRate;
+};
+
+//Verify State
+
+const verifyState = () => {
+  const dataPoints = document.querySelectorAll(".hours");
+  const unitTitle = document.querySelector(".unit_title");
+  const unitTitleBtn = document.querySelector(".unit_title_button");
+  if (changedToMinutes === false) {
+    for (const data of dataPoints) {
+      data.innerHTML = data.innerHTML * 60;
+    }
+    unitTitle.innerHTML = "Minutes Needed";
+    unitTitleBtn.innerHTML = "Change To Hours";
+    changedToMinutes = true;
+  } else {
+    for (const data of dataPoints) {
+      data.innerHTML = data.innerHTML / 60;
+    }
+    unitTitle.innerHTML = "Hours Needed";
+    unitTitleBtn.innerHTML = "Change To Minutes";
+    changedToMinutes = false;
+  }
 };
 
 //Element Creation
@@ -45,7 +71,7 @@ const tableCreation = function (
   heading_1.classList.add("cell_border");
   let heading_2 = document.createElement("th");
   heading_2.innerHTML = "Hours Needed";
-  heading_2.classList.add("cell_border");
+  heading_2.classList.add("cell_border", "unit_title");
 
   row_1.appendChild(heading_1);
   row_1.appendChild(heading_2);
@@ -64,6 +90,7 @@ const tableCreation = function (
 
     let row_2_data_2 = document.createElement("td");
     row_2_data_2.innerHTML = Number(data * hleRate).toFixed(1);
+    row_2_data_2.classList.add("hours");
 
     row_2.appendChild(row_2_data_1);
     row_2.appendChild(row_2_data_2);
@@ -92,17 +119,22 @@ const btnCreation = (parentElement, tableElement) => {
   const btnContainer = document.createElement("div");
   const backButton = document.createElement("button");
   const printBtn = document.createElement("button");
+  const changeToMinutesHoursBtn = document.createElement("button");
+
   parentElement.appendChild(btnContainer);
   btnContainer.classList.add("btnContainer");
 
   backButton.innerHTML = "Go Back";
   printBtn.innerHTML = "Save To Print";
+  changeToMinutesHoursBtn.innerHTML = "Change To Minutes";
 
   btnContainer.appendChild(backButton);
   btnContainer.appendChild(printBtn);
+  btnContainer.appendChild(changeToMinutesHoursBtn);
 
   backButton.classList.add("btn");
   printBtn.classList.add("btn");
+  changeToMinutesHoursBtn.classList.add("btn", "unit_title_button");
 
   //Event Listener For Buttons
 
@@ -113,6 +145,10 @@ const btnCreation = (parentElement, tableElement) => {
   });
 
   printBtn.addEventListener("click", downloadPDFWithjsPDF);
+
+  changeToMinutesHoursBtn.addEventListener("click", () => {
+    verifyState();
+  });
 
   //CSS for Btns
   const custom_style = {
@@ -129,8 +165,14 @@ const btnCreation = (parentElement, tableElement) => {
     padding: "5px",
   };
 
+  const changeToMinutesHoursBtnBtnStyle = {
+    marginLeft: "20px",
+    padding: "5px",
+  };
+
   Object.assign(backButton.style, backBtnStyle);
   Object.assign(printBtn.style, printBtnStyle);
+  Object.assign(changeToMinutesHoursBtn.style, changeToMinutesHoursBtnBtnStyle);
   Object.assign(btnContainer.style, custom_style);
 };
 
