@@ -102,13 +102,22 @@ const tableCreation = function (
 
   //CSS inject style
 
-  const custom_style = {
-    width: "400px",
-    height: "300px",
-    borderRadius: "6px",
-  };
+  // const custom_style = {
+  //   width: "400px",
+  //   height: "300px",
+  //   borderRadius: "6px",
+  //   marginTop: "70px"
+  // //   position: absolute,
+  // // top: 0,
+  // // bottom: 0,
+  // // left: 0,
+  // // right: 0,
+  // // margin: auto,
+  // };
 
-  Object.assign(table.style, custom_style);
+  table.classList.add("custom_style");
+
+  //Object.assign(table.style, custom_style);
 
   btnCreation(body, table);
 };
