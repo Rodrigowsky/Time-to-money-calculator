@@ -1,6 +1,6 @@
 function downloadPDFWithjsPDF() {
   let doc = new jspdf.jsPDF("p", "pt", "a4");
-  doc.html(document.querySelector("table"), {
+  doc.html(document.querySelector(".table_c"), {
     callback: function (doc) {
       doc.save("money_time_table.pdf");
     },

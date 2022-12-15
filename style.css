@@ -259,12 +259,28 @@ input[type=number] {
   flex-direction: column;
 }
 
-.custom_style {
-  width:250px;
-  height: 350px;
-  border-radius: 6px;
-  margin-top: 20px;
+.table_c {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
+
+.container_text {
+  padding-top: 5em;
+  padding-left: 6em;
+  padding-right:6em;
+  font-size: 17px;
+}
+
+.custom_style:first-child {
+  border-radius: 6px;
+  margin: 2em;
+}
+.custom_style:last-child {
+  border-radius: 6px;
+  margin: 2em;
+}
+
 
 @media (max-width:1200px){
   .form-main {
@@ -280,15 +296,11 @@ input[type=number] {
   }
 
 
-  .container_text {
-    padding-top: 100px;
-    padding-left: 50px;
-    padding-right:50px;
-    font-size: 17px;
-  }
+
 
 
 }
+
 
 @media (min-width:1201px){
 .form-main {
@@ -307,23 +319,12 @@ input[type=number] {
   margin: auto;
 }
 
+.table_c {
+  display: flex;
+align-items: space-around;  
+flex-direction: row;
+}
 
 
-
-
-.container_text {
-    margin-top: 150px;
-    margin-right: 125px;
-    margin-left: 125px;
-    font-size: 20px;
-  }
-
-
-  .custom_style {
-    width:400px;
-    height: 300px;
-    border-radius: 6px;
-    margin-top: 70px;
-  }
 
 }
