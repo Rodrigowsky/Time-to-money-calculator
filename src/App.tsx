@@ -18,6 +18,8 @@ function App() {
     transport?: number;
   };
 
+  const [submitValue, setSumbitValue] = useState(false);
+
   const [valueForm, setFormValues] = useState<values>({
     salary: 0,
     time: 0,
@@ -46,6 +48,7 @@ function App() {
     event.preventDefault();
     console.log(valueForm);
     setFormValues({ salary: 0, time: 0, food: 0, transport: 0 });
+    setSumbitValue(true);
   };
 
   return (
@@ -57,7 +60,16 @@ function App() {
         handleSubmit={handleSubmit}
         appMode={value}
       />
-      <DynamicTable hours={valueForm.time} salary={valueForm.salary} />
+      {submitValue ? (
+        <DynamicTable
+          hours={valueForm.time}
+          salary={valueForm.salary}
+          food={valueForm.food}
+          transport={valueForm.transport}
+        />
+      ) : (
+        <></>
+      )}
     </div>
   );
 }
