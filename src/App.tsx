@@ -40,15 +40,12 @@ function App() {
   };
 
   const handleChangeForm = (event: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(" hello");
     setFormValues({ ...valueForm, [event.target.name]: event.target.value });
   };
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log(valueForm);
-    setFormValues({ salary: 0, time: 0, food: 0, transport: 0 });
-    setSumbitValue(true);
+    setSumbitValue(true);    
   };
 
   return (
@@ -61,12 +58,15 @@ function App() {
         appMode={value}
       />
       {submitValue ? (
+        <div>
         <DynamicTable
           hours={valueForm.time}
           salary={valueForm.salary}
           food={valueForm.food}
           transport={valueForm.transport}
         />
+        <button type="button">Click Me</button>
+      </div>
       ) : (
         <></>
       )}

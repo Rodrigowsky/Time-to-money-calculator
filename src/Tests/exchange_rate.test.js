@@ -1,6 +1,7 @@
 import { hleExchangeRate } from "../Utils/exchangeRate";
 
 test('exhangeRate tests', () => {
+  expect(hleExchangeRate(25, 5000)).toBe(0.020);
   expect(hleExchangeRate(40, 4000)).toBe(0.040);
   expect(hleExchangeRate(50, 3000)).toBe(0.067);
   expect(hleExchangeRate(25, 2500)).toBe(0.040);

@@ -1,3 +1,4 @@
+import { type } from "os";
 import { FC, useEffect } from "react";
 //import TableData from "./TableData";
 import { hleExchangeRate } from "../Utils/exchangeRate";
@@ -13,34 +14,35 @@ export const DynamicTable: FC<TableProps> = ({ hours, salary,food,transport }) =
 
 
 
-  const hleRate = hleExchangeRate(hours,salary,transport,food);
+  const hleRate:number = hleExchangeRate(hours, salary, transport, food);
 
   // get table row data
-  const tdData = (first:number, second:number, third:number, fourth:number) => {
+  const tdData = (first: number, second: number, third: number, fourth: number) => {
+
     return (
       <>
         <tr>
           <td>{ first}</td>
-          <td>{(first * hleRate)}</td>
+          <td>{first * hleRate}</td>
         </tr>
         <tr>
           <td>{second}</td>
-          <td>{(second * hleRate)}</td>
+          <td>{second * hleRate}</td>
         </tr>
         <tr>
           <td>{third}</td>
-          <td>{(third * hleRate)}</td>
+          <td>{third * hleRate}</td>
         </tr>
         <tr>
           <td>{fourth}</td>
-          <td>{(fourth * hleRate)}</td>
+          <td>{fourth * hleRate}</td>
         </tr>
       </>
     );
   };
 
   return (
-    <table className="table">
+    <table>
       <thead>
         <tr>
           <th>Money</th>
